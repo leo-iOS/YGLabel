@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, readonly) CGFloat descent;
 
+@property (nonatomic, assign, readonly) CGSize boxSize;
+
 - (id)initWithContent:(id)content;
 
 - (id)initWithContent:(id)content maxSize:(CGSize)maxSize;
@@ -33,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (CTRunDelegateRef)delegateForAttachment;
 
 - (void)caculateSizeWithAscent:(CGFloat)sacent descent:(CGFloat)descent;
+
+
 
 @end
 

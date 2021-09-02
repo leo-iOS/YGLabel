@@ -4,7 +4,8 @@
 //
 
 #import "YGViewController.h"
-
+#import <YGLabel/YGLabel.h>
+#import <YGLabel/YGLabelQueueManager.h>
 @interface YGViewController ()
 
 @end
@@ -14,6 +15,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    for (int i = 0; i < 100; i++) {
+        NSLog(@"%@", LabelDispalyQueue);
+    }
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

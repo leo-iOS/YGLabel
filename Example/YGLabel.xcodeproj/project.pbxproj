@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		035346C26C7BD4BBB65A28F9 /* Pods_YGLabel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YGLabel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DEB55B026E132B400BEAF3E /* YGLabel.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = YGLabel.podspec; path = ../YGLabel.podspec; sourceTree = "<group>"; };
 		443D74301A769F992D4AAAD5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4D4499442E4FCB3A51AA83A9 /* Pods_YGLabel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YGLabel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* YGLabel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YGLabel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +64,6 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BCD4CB1148CAA55900D1ABE /* Pods-YGLabel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YGLabel_Example.release.xcconfig"; path = "Target Support Files/Pods-YGLabel_Example/Pods-YGLabel_Example.release.xcconfig"; sourceTree = "<group>"; };
-		8D1776BBEB0F7F4252878ECE /* YGLabel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YGLabel.podspec; path = ../YGLabel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8F6AF1B9D83C481E869E8B72 /* Pods-YGLabel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YGLabel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-YGLabel_Tests/Pods-YGLabel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D84B105E2FEEACF0008358 /* Pods-YGLabel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YGLabel_Example.debug.xcconfig"; path = "Target Support Files/Pods-YGLabel_Example/Pods-YGLabel_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AC0241CA62074884274F14 /* Pods-YGLabel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YGLabel_Tests.release.xcconfig"; path = "Target Support Files/Pods-YGLabel_Tests/Pods-YGLabel_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				8D1776BBEB0F7F4252878ECE /* YGLabel.podspec */,
+				0DEB55B026E132B400BEAF3E /* YGLabel.podspec */,
 				443D74301A769F992D4AAAD5 /* README.md */,
 				702FFA471E7D6059A76A0B4A /* LICENSE */,
 			);
@@ -449,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -482,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
