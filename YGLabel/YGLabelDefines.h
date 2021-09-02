@@ -1,9 +1,11 @@
 //
-//  VGLabelDefines.h
-//  Pods
+//  YGLabelDefines.h
+//  YGLabel
 
-#ifndef VGLabelDefines_h
-#define VGLabelDefines_h
+
+#ifndef YGLabelDefines_h
+#define YGLabelDefines_h
+
 #import <pthread.h>
 
 #define YGLabelDefaultFont [UIFont systemFontOfSize:14]
@@ -30,4 +32,4 @@ typedef NS_ENUM(NSUInteger, YGTextAttachmentAlignment) {
     YGTextAttachmentAlignmentBottom,
 };
 
-#endif /* VGLabelDefines_h */
+#endif /* YGLabelDefines_h */
