@@ -15,11 +15,10 @@ Pod::Spec.new do |s|
   A lightweight Label for iOS, using CoreText
                        DESC
 
-  s.homepage         = 'https://github.com/199320701@qq.com/YGLabel'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/leo-iOS/YGLabel'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '199320701@qq.com' => '199320701@qq.com' }
-  s.source           = { :git => 'https://github.com/199320701@qq.com/YGLabel.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:leo-iOS/YGLabel.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
