@@ -102,6 +102,11 @@ CGFloat attachmentWidthCallback(void *ref);
     return CGSizeMake(_caculatedSize.width + self.margin.left + self.margin.right, _caculatedSize.height + self.margin.top + self.margin.bottom);
 }
 
+- (id)copyWithZone:(nullable NSZone *)zone {
+    YGTextAttachment *attachment = [[YGTextAttachment alloc] initWithContent:self.content margin:self.margin alignment:self.alignment maxSize:self->_maxSize];
+    return  attachment;;
+}
+
 @end
 
 CGFloat attachemntAscentCallback(void *ref) {

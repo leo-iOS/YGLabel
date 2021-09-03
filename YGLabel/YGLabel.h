@@ -7,6 +7,8 @@
 #import "YGTextAttachment.h"
 #import "YGLabelTouchInfo.h"
 
+#import "NSMutableAttributedString+YG.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YGLabel : UIView
@@ -31,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL endTokenAlwaysShow;
 
-/// 
-@property (nonatomic, assign) CGFloat endIndentOffset;
+/// 暂不实现
+//@property (nonatomic, assign) CGFloat endIndentOffset;
 
 /// 是否开始异步绘制，默认 NO
 @property (nonatomic, assign) BOOL displayAsync;
