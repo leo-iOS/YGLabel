@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Demo2ViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6s-Rn-bGf">
+                    <rect key="frame" x="20" y="64" width="171" height="30"/>
+                    <state key="normal" title="增加UIImage Attachment"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei6-8d-0ZO">
+                    <rect key="frame" x="20" y="102" width="232" height="30"/>
+                    <state key="normal" title="随机位置插入UIImage Attachment"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAW-sp-H9t">
+                    <rect key="frame" x="20" y="140" width="162" height="30"/>
+                    <state key="normal" title="增加UIView Attachment"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew4-J2-w6r">
+                    <rect key="frame" x="20" y="216" width="162" height="30"/>
+                    <state key="normal" title="增加一段AttributeString"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHH-jc-GbB">
+                    <rect key="frame" x="20" y="178" width="223" height="30"/>
+                    <state key="normal" title="随机位置插入UIView Attachment"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLL-oE-ozs">
+                    <rect key="frame" x="20" y="254" width="224" height="30"/>
+                    <state key="normal" title="随机位置插入一段AttributeString"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cAW-sp-H9t" firstAttribute="top" secondItem="Ei6-8d-0ZO" secondAttribute="bottom" constant="8" symbolic="YES" id="4oM-pT-7qV"/>
+                <constraint firstItem="Ei6-8d-0ZO" firstAttribute="top" secondItem="M6s-Rn-bGf" secondAttribute="bottom" constant="8" symbolic="YES" id="7q9-dM-vaJ"/>
+                <constraint firstItem="OHH-jc-GbB" firstAttribute="top" secondItem="cAW-sp-H9t" secondAttribute="bottom" constant="8" symbolic="YES" id="8GO-kL-muS"/>
+                <constraint firstItem="OHH-jc-GbB" firstAttribute="leading" secondItem="cAW-sp-H9t" secondAttribute="leading" id="FgO-f4-LyP"/>
+                <constraint firstItem="ew4-J2-w6r" firstAttribute="leading" secondItem="OHH-jc-GbB" secondAttribute="leading" id="GWS-3n-lJB"/>
+                <constraint firstItem="ew4-J2-w6r" firstAttribute="top" secondItem="OHH-jc-GbB" secondAttribute="bottom" constant="8" symbolic="YES" id="Koa-dy-Enu"/>
+                <constraint firstItem="OHH-jc-GbB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="LFu-BF-nWn"/>
+                <constraint firstItem="M6s-Rn-bGf" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Vyr-ya-1rw"/>
+                <constraint firstItem="Ei6-8d-0ZO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="W11-Qv-bCh"/>
+                <constraint firstItem="M6s-Rn-bGf" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="Za0-IK-F1T"/>
+                <constraint firstItem="Ei6-8d-0ZO" firstAttribute="leading" secondItem="M6s-Rn-bGf" secondAttribute="leading" id="cpG-PE-ZcZ"/>
+                <constraint firstItem="qLL-oE-ozs" firstAttribute="top" secondItem="ew4-J2-w6r" secondAttribute="bottom" constant="8" symbolic="YES" id="oJ6-HM-hxp"/>
+                <constraint firstItem="qLL-oE-ozs" firstAttribute="leading" secondItem="ew4-J2-w6r" secondAttribute="leading" id="q19-CP-Ph3"/>
+                <constraint firstItem="cAW-sp-H9t" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="qOI-gm-XtG"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="113"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

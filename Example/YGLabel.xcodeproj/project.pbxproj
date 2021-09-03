@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3270BA26E2427000A0A6A9 /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270B826E2427000A0A6A9 /* Demo2ViewController.m */; };
+		0D3270BB26E2427000A0A6A9 /* Demo2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270B926E2427000A0A6A9 /* Demo2ViewController.xib */; };
+		0D3270C726E242A000A0A6A9 /* Demo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270C526E242A000A0A6A9 /* Demo3ViewController.m */; };
+		0D3270C826E242A000A0A6A9 /* Demo3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270C626E242A000A0A6A9 /* Demo3ViewController.xib */; };
+		0D3270D526E2436A00A0A6A9 /* Demo4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270D326E2436A00A0A6A9 /* Demo4ViewController.m */; };
+		0D3270D626E2436A00A0A6A9 /* Demo4ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270D426E2436A00A0A6A9 /* Demo4ViewController.xib */; };
+		0D3270DC26E243C400A0A6A9 /* Demo5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270DA26E243C400A0A6A9 /* Demo5ViewController.m */; };
+		0D3270DD26E243C400A0A6A9 /* Demo5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270DB26E243C400A0A6A9 /* Demo5ViewController.xib */; };
+		0D3270E326E243D000A0A6A9 /* Demo6ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270E126E243D000A0A6A9 /* Demo6ViewController.m */; };
+		0D3270E426E243D000A0A6A9 /* Demo6ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270E226E243D000A0A6A9 /* Demo6ViewController.xib */; };
+		0D3270EB26E2468100A0A6A9 /* Demo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270E826E2468100A0A6A9 /* Demo1ViewController.m */; };
+		0D3270EC26E2468100A0A6A9 /* Demo1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270E926E2468100A0A6A9 /* Demo1ViewController.xib */; };
+		0D3270F426E24A7B00A0A6A9 /* Demo7ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270F226E24A7B00A0A6A9 /* Demo7ViewController.m */; };
+		0D3270F526E24A7B00A0A6A9 /* Demo7ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270F326E24A7B00A0A6A9 /* Demo7ViewController.xib */; };
+		0D32710426E24A9000A0A6A9 /* Demo8ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D32710226E24A9000A0A6A9 /* Demo8ViewController.m */; };
+		0D32710526E24A9000A0A6A9 /* Demo8ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D32710326E24A9000A0A6A9 /* Demo8ViewController.xib */; };
+		0D32710D26E24C3B00A0A6A9 /* ControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D32710C26E24C3B00A0A6A9 /* ControlView.m */; };
 		20892B9B699065137F1429D2 /* Pods_YGLabel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4499442E4FCB3A51AA83A9 /* Pods_YGLabel_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -38,7 +55,33 @@
 
 /* Begin PBXFileReference section */
 		035346C26C7BD4BBB65A28F9 /* Pods_YGLabel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YGLabel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DEB55B026E132B400BEAF3E /* YGLabel.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = YGLabel.podspec; path = ../YGLabel.podspec; sourceTree = "<group>"; };
+		0D3270B726E2427000A0A6A9 /* Demo2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo2ViewController.h; sourceTree = "<group>"; };
+		0D3270B826E2427000A0A6A9 /* Demo2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo2ViewController.m; sourceTree = "<group>"; };
+		0D3270B926E2427000A0A6A9 /* Demo2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo2ViewController.xib; sourceTree = "<group>"; };
+		0D3270C426E242A000A0A6A9 /* Demo3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo3ViewController.h; sourceTree = "<group>"; };
+		0D3270C526E242A000A0A6A9 /* Demo3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo3ViewController.m; sourceTree = "<group>"; };
+		0D3270C626E242A000A0A6A9 /* Demo3ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo3ViewController.xib; sourceTree = "<group>"; };
+		0D3270D226E2436A00A0A6A9 /* Demo4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4ViewController.h; sourceTree = "<group>"; };
+		0D3270D326E2436A00A0A6A9 /* Demo4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4ViewController.m; sourceTree = "<group>"; };
+		0D3270D426E2436A00A0A6A9 /* Demo4ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo4ViewController.xib; sourceTree = "<group>"; };
+		0D3270D926E243C400A0A6A9 /* Demo5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5ViewController.h; sourceTree = "<group>"; };
+		0D3270DA26E243C400A0A6A9 /* Demo5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5ViewController.m; sourceTree = "<group>"; };
+		0D3270DB26E243C400A0A6A9 /* Demo5ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo5ViewController.xib; sourceTree = "<group>"; };
+		0D3270E026E243D000A0A6A9 /* Demo6ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo6ViewController.h; sourceTree = "<group>"; };
+		0D3270E126E243D000A0A6A9 /* Demo6ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo6ViewController.m; sourceTree = "<group>"; };
+		0D3270E226E243D000A0A6A9 /* Demo6ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo6ViewController.xib; sourceTree = "<group>"; };
+		0D3270E826E2468100A0A6A9 /* Demo1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo1ViewController.m; sourceTree = "<group>"; };
+		0D3270E926E2468100A0A6A9 /* Demo1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Demo1ViewController.xib; sourceTree = "<group>"; };
+		0D3270EA26E2468100A0A6A9 /* Demo1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo1ViewController.h; sourceTree = "<group>"; };
+		0D3270F126E24A7B00A0A6A9 /* Demo7ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo7ViewController.h; sourceTree = "<group>"; };
+		0D3270F226E24A7B00A0A6A9 /* Demo7ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo7ViewController.m; sourceTree = "<group>"; };
+		0D3270F326E24A7B00A0A6A9 /* Demo7ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo7ViewController.xib; sourceTree = "<group>"; };
+		0D32710126E24A9000A0A6A9 /* Demo8ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo8ViewController.h; sourceTree = "<group>"; };
+		0D32710226E24A9000A0A6A9 /* Demo8ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo8ViewController.m; sourceTree = "<group>"; };
+		0D32710326E24A9000A0A6A9 /* Demo8ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo8ViewController.xib; sourceTree = "<group>"; };
+		0D32710B26E24C3B00A0A6A9 /* ControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlView.h; sourceTree = "<group>"; };
+		0D32710C26E24C3B00A0A6A9 /* ControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlView.m; sourceTree = "<group>"; };
+		0DEB55B026E132B400BEAF3E /* YGLabel.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = YGLabel.podspec; path = ../YGLabel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		443D74301A769F992D4AAAD5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4D4499442E4FCB3A51AA83A9 /* Pods_YGLabel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YGLabel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* YGLabel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YGLabel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +138,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D3270B026E2423600A0A6A9 /* Demo2 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3270B726E2427000A0A6A9 /* Demo2ViewController.h */,
+				0D3270B826E2427000A0A6A9 /* Demo2ViewController.m */,
+				0D3270B926E2427000A0A6A9 /* Demo2ViewController.xib */,
+			);
+			path = Demo2;
+			sourceTree = "<group>";
+		};
+		0D3270B126E2423C00A0A6A9 /* Demo3 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3270C426E242A000A0A6A9 /* Demo3ViewController.h */,
+				0D3270C526E242A000A0A6A9 /* Demo3ViewController.m */,
+				0D3270C626E242A000A0A6A9 /* Demo3ViewController.xib */,
+			);
+			path = Demo3;
+			sourceTree = "<group>";
+		};
+		0D3270B226E2424000A0A6A9 /* Demo4 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3270D226E2436A00A0A6A9 /* Demo4ViewController.h */,
+				0D3270D326E2436A00A0A6A9 /* Demo4ViewController.m */,
+				0D3270D426E2436A00A0A6A9 /* Demo4ViewController.xib */,
+			);
+			path = Demo4;
+			sourceTree = "<group>";
+		};
+		0D3270B326E2424400A0A6A9 /* Demo5 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3270D926E243C400A0A6A9 /* Demo5ViewController.h */,
+				0D3270DA26E243C400A0A6A9 /* Demo5ViewController.m */,
+				0D3270DB26E243C400A0A6A9 /* Demo5ViewController.xib */,
+			);
+			path = Demo5;
+			sourceTree = "<group>";
+		};
+		0D3270B426E2424900A0A6A9 /* Demo6 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3270E026E243D000A0A6A9 /* Demo6ViewController.h */,
+				0D3270E126E243D000A0A6A9 /* Demo6ViewController.m */,
+				0D3270E226E243D000A0A6A9 /* Demo6ViewController.xib */,
+			);
+			path = Demo6;
+			sourceTree = "<group>";
+		};
+		0D3270E726E2468100A0A6A9 /* Demo1(字体、颜色、行高、行数、Attachment测试) */ = {
+			isa = PBXGroup;
+			children = (
+				0D3270E826E2468100A0A6A9 /* Demo1ViewController.m */,
+				0D3270E926E2468100A0A6A9 /* Demo1ViewController.xib */,
+				0D3270EA26E2468100A0A6A9 /* Demo1ViewController.h */,
+			);
+			path = "Demo1(字体、颜色、行高、行数、Attachment测试)";
+			sourceTree = "<group>";
+		};
+		0D3270EF26E24A3900A0A6A9 /* Demo7 */ = {
+			isa = PBXGroup;
+			children = (
+				0D3270F126E24A7B00A0A6A9 /* Demo7ViewController.h */,
+				0D3270F226E24A7B00A0A6A9 /* Demo7ViewController.m */,
+				0D3270F326E24A7B00A0A6A9 /* Demo7ViewController.xib */,
+			);
+			path = Demo7;
+			sourceTree = "<group>";
+		};
+		0D3270F026E24A3E00A0A6A9 /* Demo8 */ = {
+			isa = PBXGroup;
+			children = (
+				0D32710126E24A9000A0A6A9 /* Demo8ViewController.h */,
+				0D32710226E24A9000A0A6A9 /* Demo8ViewController.m */,
+				0D32710326E24A9000A0A6A9 /* Demo8ViewController.xib */,
+			);
+			path = Demo8;
+			sourceTree = "<group>";
+		};
+		0D32710A26E24C2A00A0A6A9 /* ControlView */ = {
+			isa = PBXGroup;
+			children = (
+				0D32710B26E24C3B00A0A6A9 /* ControlView.h */,
+				0D32710C26E24C3B00A0A6A9 /* ControlView.m */,
+			);
+			path = ControlView;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -132,14 +264,23 @@
 		6003F593195388D20070C39A /* Example for YGLabel */ = {
 			isa = PBXGroup;
 			children = (
+				0D32710A26E24C2A00A0A6A9 /* ControlView */,
+				0D3270E726E2468100A0A6A9 /* Demo1(字体、颜色、行高、行数、Attachment测试) */,
+				0D3270B026E2423600A0A6A9 /* Demo2 */,
+				0D3270B126E2423C00A0A6A9 /* Demo3 */,
+				0D3270B226E2424000A0A6A9 /* Demo4 */,
+				0D3270B326E2424400A0A6A9 /* Demo5 */,
+				0D3270B426E2424900A0A6A9 /* Demo6 */,
+				0D3270EF26E24A3900A0A6A9 /* Demo7 */,
+				0D3270F026E24A3E00A0A6A9 /* Demo8 */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
+				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				6003F594195388D20070C39A /* Supporting Files */,
 				6003F59C195388D20070C39A /* YGAppDelegate.h */,
 				6003F59D195388D20070C39A /* YGAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YGViewController.h */,
 				6003F5A6195388D20070C39A /* YGViewController.m */,
-				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
-				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for YGLabel";
 			path = YGLabel;
@@ -243,10 +384,13 @@
 		6003F582195388D10070C39A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = YG;
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = P7654KWLTT;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -277,8 +421,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D32710526E24A9000A0A6A9 /* Demo8ViewController.xib in Resources */,
+				0D3270E426E243D000A0A6A9 /* Demo6ViewController.xib in Resources */,
+				0D3270D626E2436A00A0A6A9 /* Demo4ViewController.xib in Resources */,
+				0D3270F526E24A7B00A0A6A9 /* Demo7ViewController.xib in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				0D3270BB26E2427000A0A6A9 /* Demo2ViewController.xib in Resources */,
+				0D3270DD26E243C400A0A6A9 /* Demo5ViewController.xib in Resources */,
+				0D3270C826E242A000A0A6A9 /* Demo3ViewController.xib in Resources */,
+				0D3270EC26E2468100A0A6A9 /* Demo1ViewController.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -364,8 +516,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3270DC26E243C400A0A6A9 /* Demo5ViewController.m in Sources */,
 				6003F59E195388D20070C39A /* YGAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* YGViewController.m in Sources */,
+				0D3270D526E2436A00A0A6A9 /* Demo4ViewController.m in Sources */,
+				0D3270C726E242A000A0A6A9 /* Demo3ViewController.m in Sources */,
+				0D3270BA26E2427000A0A6A9 /* Demo2ViewController.m in Sources */,
+				0D3270E326E243D000A0A6A9 /* Demo6ViewController.m in Sources */,
+				0D3270F426E24A7B00A0A6A9 /* Demo7ViewController.m in Sources */,
+				0D32710D26E24C3B00A0A6A9 /* ControlView.m in Sources */,
+				0D32710426E24A9000A0A6A9 /* Demo8ViewController.m in Sources */,
+				0D3270EB26E2468100A0A6A9 /* Demo1ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,11 +655,12 @@
 			baseConfigurationReference = D3D84B105E2FEEACF0008358 /* Pods-YGLabel_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P7654KWLTT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YGLabel/YGLabel-Prefix.pch";
 				INFOPLIST_FILE = "YGLabel/YGLabel-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leo.yglabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -510,11 +672,12 @@
 			baseConfigurationReference = 8BCD4CB1148CAA55900D1ABE /* Pods-YGLabel_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P7654KWLTT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YGLabel/YGLabel-Prefix.pch";
 				INFOPLIST_FILE = "YGLabel/YGLabel-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leo.yglabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
