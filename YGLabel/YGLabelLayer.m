@@ -61,7 +61,7 @@
     
     CGSize size = self.bounds.size;
     BOOL opaque = self.opaque;
-    CGFloat scale = self.contentsScale;
+//    CGFloat scale = self.contentsScale;
     
     if (async) {
         if (self.willDisplay) self.willDisplay(self);
@@ -102,6 +102,7 @@
             CGContextScaleCTM(context, 1.0, -1.0);
             CGContextTranslateCTM(context, 0, -size.height);
             
+            [self _fillBackgroundColorIfNeeded:context size:size opaque:opaque];
             self.displaying(context, size, isCancelled);
             
             if (isCancelled()) {
@@ -136,7 +137,7 @@
             self.willDisplay(self);
         }
         
-        UIGraphicsBeginImageContextWithOptions(size, opaque, scale);
+        UIGraphicsBeginImageContextWithOptions(size, opaque, [UIScreen mainScreen].scale);
         CGContextRef context = UIGraphicsGetCurrentContext();
         
         // 坐标系翻转

@@ -76,7 +76,8 @@
     self.label.font = font;
     self.label.lineHeight = lineHeight;
     self.label.numberOfLines = lines;
-    self.label.backgroundColor = [UIColor lightGrayColor];
+    self.label.layer.borderColor = UIColor.grayColor.CGColor;
+    self.label.layer.borderWidth = 1.0;
     [self.view addSubview:self.label];
     
     [self.label appendAttachment:imageAttachment1];
