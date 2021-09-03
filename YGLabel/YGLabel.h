@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL endTokenAlwaysShow;
 
+@property (nonatomic, assign, readonly) NSUInteger textLength;
+
 /// 暂不实现
 //@property (nonatomic, assign) CGFloat endIndentOffset;
 

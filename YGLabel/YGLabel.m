@@ -94,6 +94,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     self.userInteractionEnabled = YES;
 }
 
+
 #pragma mark - set text
 - (void)setText:(NSString *)text {
     if (!text) {
@@ -164,6 +165,10 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 }
 
 - (void)insertAttachment:(YGTextAttachment *)attachment atIndex:(NSInteger)index {
+    if ([_attachments containsObject:attachment]) {
+        YGLog(@"这个attachment已经添加过了");
+        return;
+    }
     [self _getFontProperty];
     [attachment caculateSizeWithAscent:_fontAscent descent:_fontDescent];
     NSMutableAttributedString *attachText   = [[NSMutableAttributedString alloc]initWithString:ReplacementCharacter];
@@ -171,6 +176,11 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     [attachText setAttributes:@{(__bridge NSString *)kCTRunDelegateAttributeName : (__bridge id)delegate} range:NSMakeRange(0, 1)];
     [_attachments addObject:attachment];
     [self insertAttributeText:attachText atIndex:index];
+}
+#pragma mark - getter methods
+
+- (NSUInteger)textLength {
+    return  _innerAttributeText.length;
 }
 
 #pragma mark - setter methods
@@ -350,6 +360,11 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 }
 
 - (void)_resetData {
+    for (YGTextAttachment *attachment in _attachments) {
+        if ([attachment.content isKindOfClass:[UIView class]]) {
+            [(UIView *)attachment.content removeFromSuperview];
+        }
+    }
     _innerAttributeText = [[NSMutableAttributedString alloc] init];
     _attachments = [NSMutableArray array];
     _touchInfos = [NSMutableArray array];

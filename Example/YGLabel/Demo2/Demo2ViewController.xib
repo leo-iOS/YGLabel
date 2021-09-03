@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Demo2ViewController">
             <connections>
+                <outlet property="label" destination="Pbl-La-apt" id="3q2-6Q-eSt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,26 +23,55 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6s-Rn-bGf">
                     <rect key="frame" x="20" y="64" width="171" height="30"/>
                     <state key="normal" title="增加UIImage Attachment"/>
+                    <connections>
+                        <action selector="addUIImage:" destination="-1" eventType="touchUpInside" id="bqZ-PS-2pQ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei6-8d-0ZO">
                     <rect key="frame" x="20" y="102" width="232" height="30"/>
                     <state key="normal" title="随机位置插入UIImage Attachment"/>
+                    <connections>
+                        <action selector="insertUIImage:" destination="-1" eventType="touchUpInside" id="gPz-gq-4JK"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAW-sp-H9t">
                     <rect key="frame" x="20" y="140" width="162" height="30"/>
                     <state key="normal" title="增加UIView Attachment"/>
+                    <connections>
+                        <action selector="addUIView:" destination="-1" eventType="touchUpInside" id="eOr-qu-DLV"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew4-J2-w6r">
                     <rect key="frame" x="20" y="216" width="162" height="30"/>
                     <state key="normal" title="增加一段AttributeString"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHH-jc-GbB">
-                    <rect key="frame" x="20" y="178" width="223" height="30"/>
-                    <state key="normal" title="随机位置插入UIView Attachment"/>
+                    <connections>
+                        <action selector="addString:" destination="-1" eventType="touchUpInside" id="ejH-oe-gmr"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLL-oE-ozs">
                     <rect key="frame" x="20" y="254" width="224" height="30"/>
                     <state key="normal" title="随机位置插入一段AttributeString"/>
+                    <connections>
+                        <action selector="insertString:" destination="-1" eventType="touchUpInside" id="jrZ-U0-Sw0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHH-jc-GbB">
+                    <rect key="frame" x="20" y="178" width="223" height="30"/>
+                    <state key="normal" title="随机位置插入UIView Attachment"/>
+                    <connections>
+                        <action selector="insertUIView:" destination="-1" eventType="touchUpInside" id="geV-nL-lW9"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbl-La-apt" customClass="YGLabel">
+                    <rect key="frame" x="20" y="304" width="374" height="538"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpq-bb-Mee">
+                    <rect key="frame" x="363" y="64" width="31" height="30"/>
+                    <state key="normal" title="清空"/>
+                    <connections>
+                        <action selector="clearAction:" destination="-1" eventType="touchUpInside" id="TRx-Wr-qxl"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
@@ -54,13 +84,19 @@
                 <constraint firstItem="ew4-J2-w6r" firstAttribute="leading" secondItem="OHH-jc-GbB" secondAttribute="leading" id="GWS-3n-lJB"/>
                 <constraint firstItem="ew4-J2-w6r" firstAttribute="top" secondItem="OHH-jc-GbB" secondAttribute="bottom" constant="8" symbolic="YES" id="Koa-dy-Enu"/>
                 <constraint firstItem="OHH-jc-GbB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="LFu-BF-nWn"/>
+                <constraint firstItem="Pbl-La-apt" firstAttribute="top" secondItem="qLL-oE-ozs" secondAttribute="bottom" constant="20" id="Pgj-5L-Yup"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Wpq-bb-Mee" secondAttribute="trailing" constant="20" id="Quo-SV-mmF"/>
                 <constraint firstItem="M6s-Rn-bGf" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Vyr-ya-1rw"/>
                 <constraint firstItem="Ei6-8d-0ZO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="W11-Qv-bCh"/>
                 <constraint firstItem="M6s-Rn-bGf" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="Za0-IK-F1T"/>
                 <constraint firstItem="Ei6-8d-0ZO" firstAttribute="leading" secondItem="M6s-Rn-bGf" secondAttribute="leading" id="cpG-PE-ZcZ"/>
+                <constraint firstItem="Wpq-bb-Mee" firstAttribute="centerY" secondItem="M6s-Rn-bGf" secondAttribute="centerY" id="fx6-Gm-cLl"/>
                 <constraint firstItem="qLL-oE-ozs" firstAttribute="top" secondItem="ew4-J2-w6r" secondAttribute="bottom" constant="8" symbolic="YES" id="oJ6-HM-hxp"/>
                 <constraint firstItem="qLL-oE-ozs" firstAttribute="leading" secondItem="ew4-J2-w6r" secondAttribute="leading" id="q19-CP-Ph3"/>
                 <constraint firstItem="cAW-sp-H9t" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="qOI-gm-XtG"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="Pbl-La-apt" secondAttribute="bottom" constant="20" id="qn4-fO-HHc"/>
+                <constraint firstItem="Pbl-La-apt" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="wy1-d5-nPh"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Pbl-La-apt" secondAttribute="trailing" constant="20" id="xoo-4v-Ugq"/>
             </constraints>
             <point key="canvasLocation" x="141" y="113"/>
         </view>
