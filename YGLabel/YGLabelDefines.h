@@ -7,9 +7,13 @@
 #define YGLabelDefines_h
 
 #import <pthread.h>
-
-#ifdef DEBUG 
+//#define OpenLog
+#ifdef DEBUG
+#ifdef OpenLog
 #define YGLog(...) NSLog(__VA_ARGS__)
+#else
+#define YGLog(...)
+#endif
 #else
 #define YGLog(...)
 #endif

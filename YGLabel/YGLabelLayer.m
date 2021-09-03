@@ -64,8 +64,8 @@
 //    CGFloat scale = self.contentsScale;
     
     if (async) {
-        if (self.willDisplay) self.willDisplay(self);
-        
+        if (!self.willDisplay) return;;
+        CTFrameRef textFrame = self.willDisplay(self);
         // 小于一个像素的不绘制
         if (size.width < 1 || size.height < 1) {
             CGImageRef image = (__bridge_retained CGImageRef)self.contents;
@@ -75,9 +75,9 @@
                     CGImageRelease(image);
                 });
             }
-            if (self.didDisplay) {
-                self.didDisplay(self, YES);
-            }
+//            if (self.didDisplay) {
+//                self.didDisplay(self, YES);
+//            }
         }
         
         _YGSentinel *sentinel = _sentinel;
@@ -103,12 +103,13 @@
             CGContextTranslateCTM(context, 0, -size.height);
             
             [self _fillBackgroundColorIfNeeded:context size:size opaque:opaque];
-            self.displaying(context, size, isCancelled);
+            self.displaying(context, size, textFrame, isCancelled);
             
             if (isCancelled()) {
                 UIGraphicsEndImageContext();
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (self.didDisplay) self.didDisplay(self, NO);
+                    CFRelease(textFrame);
                 });
                 return;
             }
@@ -118,6 +119,7 @@
             if (isCancelled()) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (self.didDisplay) self.didDisplay(self, NO);
+                    CFRelease(textFrame);
                 });
                 return;
             }
@@ -127,15 +129,18 @@
                 } else {
                     self.contents = (__bridge id)(image.CGImage);
                     if (self.didDisplay) self.didDisplay(self, YES);
+                    CFRelease(textFrame);
                 }
             });
         });
         
     } else {
         [_sentinel increase];
-        if (self.willDisplay) {
-            self.willDisplay(self);
+        if (!self.willDisplay) {
+            return;
         }
+        
+        CTFrameRef textFrame = self.willDisplay(self);
         
         UIGraphicsBeginImageContextWithOptions(size, opaque, [UIScreen mainScreen].scale);
         CGContextRef context = UIGraphicsGetCurrentContext();
@@ -146,7 +151,7 @@
         
         [self _fillBackgroundColorIfNeeded:context size:size opaque:opaque];
         
-        self.displaying(context, size, ^BOOL{
+        self.displaying(context, size, textFrame, ^BOOL{
             return NO;
         });
         
@@ -156,6 +161,7 @@
         if (self.didDisplay) {
             self.didDisplay(self, YES);
         }
+        CFRelease(textFrame);
     }
 }
 
