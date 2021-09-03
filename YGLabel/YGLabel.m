@@ -96,6 +96,15 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 
 
 #pragma mark - set text
+
+- (void)setDisplayAsync:(BOOL)displayAsync {
+    if (_displayAsync != displayAsync) {
+        _displayAsync = displayAsync;
+        ((YGLabelLayer *)self.layer).displayAsync = displayAsync;
+        [self _drawText];
+    }
+}
+
 - (void)setText:(NSString *)text {
     if (!text) {
         [self setAttributedText:nil];
@@ -144,8 +153,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 }
 
 - (void)appendAttachment:(YGTextAttachment *)attachment {
-    YGTextAttachment *att = [attachment copy];
-    [self insertAttachment:att atIndex:_innerAttributeText.length];
+    [self insertAttachment:attachment atIndex:_innerAttributeText.length];
 }
 
 - (void)insertText:(NSString *)text atIndex:(NSInteger)index {

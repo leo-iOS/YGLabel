@@ -11,7 +11,7 @@
 @interface Demo2ViewController ()
 
 @property (weak, nonatomic) IBOutlet YGLabel *label;
-@property (nonatomic, strong) NSArray *imageAttachments;
+//@property (nonatomic, strong) NSArray *imageAttachments;
 
 
 @property (nonatomic, strong) NSArray *strings;
@@ -27,18 +27,7 @@
     self.label.layer.borderColor = UIColor.grayColor.CGColor;
     self.label.layer.borderWidth = 1.0;
     self.label.lineHeight = 35;
-    UIImage *image1 = [UIImage imageNamed:@"菠萝"];
-    YGTextAttachment *imageAttachment1 = [[YGTextAttachment alloc] initWithContent:image1 margin:UIEdgeInsetsMake(0, 10, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(20, 20)];
     
-    UIImage *image2 = [UIImage imageNamed:@"菠萝莓"];
-    YGTextAttachment *imageAttachment2 = [[YGTextAttachment alloc] initWithContent:image2 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(25, 25)];
-    
-    UIImage *image3 = [UIImage imageNamed:@"香蕉"];
-    YGTextAttachment *imageAttachment3 = [[YGTextAttachment alloc] initWithContent:image3 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(30, 30)];
-    
-    UIImage *image4 = [UIImage imageNamed:@"西瓜"];
-    YGTextAttachment *imageAttachment4 = [[YGTextAttachment alloc] initWithContent:image4 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(35, 35)];
-    self.imageAttachments = @[imageAttachment1, imageAttachment2, imageAttachment3, imageAttachment4];
     
     
     NSString *string1 = @"这是第一段用于测试的文字";
@@ -116,6 +105,21 @@
     view2.backgroundColor = [UIColor orangeColor];
     YGTextAttachment *viewAttchment2 = [[YGTextAttachment alloc] initWithContent:view2];
     return @[viewAttchment1, viewAttchment2];
+}
+
+- (NSArray *)imageAttachments {
+    UIImage *image1 = [UIImage imageNamed:@"菠萝"];
+    YGTextAttachment *imageAttachment1 = [[YGTextAttachment alloc] initWithContent:image1 margin:UIEdgeInsetsMake(0, 10, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(20, 20)];
+    
+    UIImage *image2 = [UIImage imageNamed:@"菠萝莓"];
+    YGTextAttachment *imageAttachment2 = [[YGTextAttachment alloc] initWithContent:image2 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(25, 25)];
+    
+    UIImage *image3 = [UIImage imageNamed:@"香蕉"];
+    YGTextAttachment *imageAttachment3 = [[YGTextAttachment alloc] initWithContent:image3 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(30, 30)];
+    
+    UIImage *image4 = [UIImage imageNamed:@"西瓜"];
+    YGTextAttachment *imageAttachment4 = [[YGTextAttachment alloc] initWithContent:image4 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(35, 35)];
+    return @[imageAttachment1, imageAttachment2, imageAttachment3, imageAttachment4];
 }
 
 - (NSInteger)randamIndex:(NSInteger)count {
