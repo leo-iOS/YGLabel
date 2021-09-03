@@ -50,7 +50,7 @@
     };
     
     self.lineHeightControl.minCount = [UIFont systemFontOfSize:10].lineHeight;
-    self.lineHeightControl.count = 32;
+    self.lineHeightControl.count = 35;
     self.lineHeightControl.maxCount = [UIFont systemFontOfSize:40].lineHeight;
     self.lineHeightControl.countBlock = ^(CGFloat count) {
         weakSelf.label.lineHeight = count;
@@ -67,7 +67,10 @@
     YGTextAttachment *imageAttachment2 = [[YGTextAttachment alloc] initWithContent:image2 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(font.lineHeight, font.lineHeight)];
     
     UIImage *image3 = [UIImage imageNamed:@"香蕉"];
-    YGTextAttachment *imageAttachment3 = [[YGTextAttachment alloc] initWithContent:image3 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(font.lineHeight, font.lineHeight)];
+    YGTextAttachment *imageAttachment3 = [[YGTextAttachment alloc] initWithContent:image3 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(30, 30)];
+    
+    UIImage *image4 = [UIImage imageNamed:@"西瓜"];
+    YGTextAttachment *imageAttachment4 = [[YGTextAttachment alloc] initWithContent:image4 margin:UIEdgeInsetsMake(0, 5, 0, 5) alignment:YGTextAttachmentAlignmentCenter maxSize:CGSizeMake(35, 35)];
     
     
     self.label.font = font;
@@ -92,14 +95,14 @@
     NSMutableAttributedString *attribute3 = [[NSMutableAttributedString alloc] initWithString:@"这是第六段用于测试的文字" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:26], NSForegroundColorAttributeName : [UIColor greenColor]}];
     [attribute3 yg_setUnderlineStyle:(kCTUnderlineStyleSingle)];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
     view.backgroundColor = [UIColor redColor];
     UILabel *label = [[UILabel alloc] init];
     label.text = @"自定义视图";
-    label.font = [UIFont systemFontOfSize:10];
+    label.font = [UIFont systemFontOfSize:14];
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor whiteColor];
-    label.frame = CGRectMake(10, 5, 60, 20);
+    label.frame = CGRectMake(10, 5, 100, 20);
     [view addSubview:label];
     YGTextAttachment *attchment2 = [[YGTextAttachment alloc] initWithContent:view];
     [self.label appendAttachment:attchment2];
@@ -112,12 +115,14 @@
     [self.label appendWithText:@"这是第七段用于测试的很长长长长长长文字"];
     [self.label appendAttributeText:attribute3];
     [self.label appendAttributeText:attribute2];
+    [self.label appendAttachment:imageAttachment3];
     [self.label appendWithText:@"这是第八段用于测试的很长长长长长长长长长长长长文字"];
     [self.label appendAttributeText:attribute];
     [self.label appendAttributeText:attribute3];
-    [self.label appendAttachment:imageAttachment3];
+    [self.label appendAttachment:imageAttachment4];
     [self.label appendWithText:@"这是第九段段用于测试的很长长长长长长长长长长长长长长长长长长长长长长长长文字"];
     [self.label appendAttributeText:attribute2];
+    
 }
 
 
