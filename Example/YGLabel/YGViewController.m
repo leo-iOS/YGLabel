@@ -43,8 +43,8 @@
         @"Demo2 (测试append, insert attribuString、Attachment)",
         @"Demo3（测试同步、异步绘制1）",
         @"Demo4（测试同步、异步绘制2）",
-        @"Demo5（测试endtoken总是存在）",
-        @"Demo6（测试endtoken隐藏)",
+        @"Demo5（测试endtoken隐藏）",
+        @"Demo6（测试endtoken总是存在)",
         @"Demo7（tap测试)",
         @"Demo8（长按背景色显示)",
     ];

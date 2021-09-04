@@ -171,24 +171,24 @@
 			path = "Demo4（测试同步、异步绘制2）";
 			sourceTree = "<group>";
 		};
-		0D3270B326E2424400A0A6A9 /* Demo5（测试endtoken总是存在） */ = {
+		0D3270B326E2424400A0A6A9 /* Demo5（测试endtoken隐藏） */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270D926E243C400A0A6A9 /* Demo5ViewController.h */,
 				0D3270DA26E243C400A0A6A9 /* Demo5ViewController.m */,
 				0D3270DB26E243C400A0A6A9 /* Demo5ViewController.xib */,
 			);
-			path = "Demo5（测试endtoken总是存在）";
+			path = "Demo5（测试endtoken隐藏）";
 			sourceTree = "<group>";
 		};
-		0D3270B426E2424900A0A6A9 /* Demo6（测试endtoken隐藏) */ = {
+		0D3270B426E2424900A0A6A9 /* Demo6（测试endtoken总是存在) */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270E026E243D000A0A6A9 /* Demo6ViewController.h */,
 				0D3270E126E243D000A0A6A9 /* Demo6ViewController.m */,
 				0D3270E226E243D000A0A6A9 /* Demo6ViewController.xib */,
 			);
-			path = "Demo6（测试endtoken隐藏)";
+			path = "Demo6（测试endtoken总是存在)";
 			sourceTree = "<group>";
 		};
 		0D3270E726E2468100A0A6A9 /* Demo1(字体、颜色、行高、行数、Attachment测试) */ = {
@@ -272,8 +272,8 @@
 				0D3270B026E2423600A0A6A9 /* Demo2 (测试append, insert attribuString、Attachment) */,
 				0D3270B126E2423C00A0A6A9 /* Demo3（测试同步、异步绘制1） */,
 				0D3270B226E2424000A0A6A9 /* Demo4（测试同步、异步绘制2） */,
-				0D3270B326E2424400A0A6A9 /* Demo5（测试endtoken总是存在） */,
-				0D3270B426E2424900A0A6A9 /* Demo6（测试endtoken隐藏) */,
+				0D3270B326E2424400A0A6A9 /* Demo5（测试endtoken隐藏） */,
+				0D3270B426E2424900A0A6A9 /* Demo6（测试endtoken总是存在) */,
 				0D3270EF26E24A3900A0A6A9 /* Demo7（tap测试) */,
 				0D3270F026E24A3E00A0A6A9 /* Demo8（长按背景色显示) */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
