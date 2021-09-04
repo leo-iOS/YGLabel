@@ -12,16 +12,17 @@
                           font:(UIFont *)font
                           size:(CGSize)size
                 numbersOfLines:(NSInteger)numberOfLines; {
-    return [self caculateSizeWithText:text font:font size:size lineHeight:nil numbersOfLines:numberOfLines];
+    return [self caculateSizeWithText:text font:font size:size lineHeight:nil textAlignment:NSTextAlignmentLeft lineBreakMode:NSLineBreakByWordWrapping numbersOfLines:numberOfLines];
 }
 
 + (CGSize)caculateSizeWithText:(NSString *)text
-          font:(UIFont *)font
-          size:(CGSize)size
-    lineHeight:(NSNumber * _Nullable)lineHeight
-numbersOfLines:(NSInteger)numberOfLines {
+                          font:(UIFont *)font
+                          size:(CGSize)size
+                    lineHeight:(NSNumber * _Nullable)lineHeight
+                 textAlignment:(NSTextAlignment)textAlignment
+                 lineBreakMode:(NSLineBreakMode)lineBreakMode
+                numbersOfLines:(NSInteger)numberOfLines {
     
-    // 当text = @""，height正常计算，width为0
     if (!text || ![text isKindOfClass:[NSString class]]) {
         return CGSizeZero;
     }
@@ -39,7 +40,6 @@ numbersOfLines:(NSInteger)numberOfLines {
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
           paragraphStyle.minimumLineHeight = lineHeight.floatValue;
           paragraphStyle.maximumLineHeight = lineHeight.floatValue;
-        
           [attribute setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
     }
     
@@ -49,12 +49,6 @@ numbersOfLines:(NSInteger)numberOfLines {
     
     return [self caculateSizeWithAttributeText:attributeText size:size numbersOfLines:numberOfLines];
 }
-//
-//+ (CGSize)caculateSizeWithAttributeText:(NSAttributedString *)attributeText
-//                                   size:(CGSize)size
-//                         numbersOfLines:(NSInteger)numberOfLines {
-//    return [self caculateSIzeWithAttributeText:attributeText size:size numbersOfLines:numberOfLines];
-//}
 
 + (CGSize)caculateSizeWithAttributeText:(NSAttributedString *)attributeText
                                    size:(CGSize)size
@@ -65,9 +59,12 @@ numbersOfLines:(NSInteger)numberOfLines {
         return CGSizeZero;
     }
     
-    size = size.height == 0 ? CGSizeMake(size.width, CGFLOAT_MAX) : size;
-    CFAttributedStringRef attributedStringRef = (__bridge CFAttributedStringRef)attributeString;
+    if (CGSizeEqualToSize(size, CGSizeZero)) {
+        return CGSizeZero;
+    }
     
+    size = size.height == 0 ? CGSizeMake(size.width, YGFLOAT_MAX) : size;
+    CFAttributedStringRef attributedStringRef = (__bridge CFAttributedStringRef)attributeString;
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attributedStringRef);
     CFRange range = CFRangeMake(0, 0);
     if (numberOfLines > 0 && framesetter)
@@ -90,15 +87,9 @@ numbersOfLines:(NSInteger)numberOfLines {
         CFRelease(path);
     }
     
-    CFRange fitCFRange = CFRangeMake(0, 0);
-    CGSize newSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, range, NULL, size, &fitCFRange);
-    if (framesetter)
-    {
-        CFRelease(framesetter);
-    }
-    return CGSizeMake(ceilf(newSize.width) + 1, MIN(ceilf(newSize.height) + 1, size.height));
-    
-    return CGSizeZero;
+    CGSize newSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, range, NULL, size, NULL);
+    CFRelease(framesetter);
+    return CGSizeMake(YG_Ceil(newSize.width), MIN(YG_Ceil(newSize.height), size.height));
 }
 
 @end

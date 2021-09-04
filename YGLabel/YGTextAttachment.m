@@ -85,8 +85,8 @@ CGFloat attachmentWidthCallback(void *ref);
 }
 
 - (CTRunDelegateRef)delegateForAttachment {
-    NSAssert(!VPFloatIsEqual(_ascent, 0), @"ascent can no be zero");
-    NSAssert(!VPFloatIsEqual(_descent, 0), @"descent can no be zero");
+    NSAssert(!YGFloatIsEqual(_ascent, 0), @"ascent can no be zero");
+    NSAssert(!YGFloatIsEqual(_descent, 0), @"descent can no be zero");
     
     CTRunDelegateCallbacks callbacks;
     callbacks.version = kCTRunDelegateVersion1;

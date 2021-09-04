@@ -22,11 +22,20 @@
 
 #define YGLabelDefaultTextColor [UIColor blackColor]
 
-//#define YGLabelDefaultTouchedTextColor [UIColor colorWithRed:0.2313 green:0.5137 blue:1.0 alpha:1]
 
-static inline BOOL VPFloatIsEqual(CGFloat f1, CGFloat f2) {
+static inline BOOL YGFloatIsEqual(CGFloat f1, CGFloat f2) {
     return ABS(f1 - f2) < DBL_EPSILON;
 }
+
+static inline CGFLOAT_TYPE YG_Ceil(CGFLOAT_TYPE cgfloat) {
+#if CGFLOAT_IS_DOUBLE
+    return ceil(cgfloat);
+#else
+    return ceilf(cgfloat);
+#endif
+}
+
+static CGFloat const YGFLOAT_MAX = 100000;
 
 static inline void dispatch_async_on_main_queue(void (^block)(void)) {
     if (pthread_main_np()) {

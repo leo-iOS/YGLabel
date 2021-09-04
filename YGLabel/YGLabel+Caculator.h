@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
                           font:(UIFont *)font
                           size:(CGSize)size
                     lineHeight:(NSNumber * _Nullable)lineHeight
+                 textAlignment:(NSTextAlignment)textAlignment
+                 lineBreakMode:(NSLineBreakMode)lineBreakMode
                 numbersOfLines:(NSInteger)numberOfLines;
 
 

@@ -10,6 +10,7 @@
 #import "YGLabel+Caculator.h"
 static NSString* const EllipsesCharacter = @"\u2026";  // ... 的 unicode 编码
 
+
 static NSString* const ReplacementCharacter = @"\uFFFC";  // attachment的 替换的 unicode 编码
 
 typedef NS_ENUM(NSUInteger, LongPressBgState) {
@@ -17,7 +18,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     LongPressBgStateToDraw = 1,
 };
 
-@interface YGLabel()<YGLabelGestureRecognizerDelegate> {
+@interface YGLabel()<YGLabelGestureRecognizerDelegate, UIGestureRecognizerDelegate> {
     // attachments
     NSMutableArray<YGTextAttachment *> *_attachments;
     NSMutableArray<YGTextAttachment *> *_attachmentDoNotDraw;
@@ -83,6 +84,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     
     _gesture = [[YGLabelGestureRecognizer alloc] init];
     _gesture.yg_delegate = self;
+    _gesture.delegate = self;
     _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longpressAction:)];
     [self addGestureRecognizer:_longPressGesture];
     [self addGestureRecognizer:_gesture];
@@ -211,7 +213,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 }
 
 - (void)setLineHeight:(CGFloat)lineHeight {
-    if (!VPFloatIsEqual(_lineHeight, lineHeight)) {
+    if (!YGFloatIsEqual(_lineHeight, lineHeight)) {
         _lineHeight = lineHeight;
         [self _drawText];
     }
@@ -270,6 +272,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 - (void)setEndToken:(YGLabel *)endToken {
     if (_endToken != endToken) {
         _endToken = endToken;
+        _endToken.lineHeight = self.lineHeight;
         [self _drawText];
     }
 }
@@ -281,12 +284,6 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     }
 }
 
-//- (void)setEndIndentOffset:(CGFloat)endIndentOffset {
-//    if (!VPFloatIsEqual(_endIndentOffset, endIndentOffset)) {
-//        _endIndentOffset = endIndentOffset;
-//        [self _drawText];
-//    }
-//}
 
 #pragma mark - add methods
 - (void)addTouchInfo:(YGLabelTouchInfo *)touchInfo {
@@ -361,24 +358,16 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 - (NSAttributedString *)_getAttributeTextForDraw {
     if (_innerAttributeText) {
         NSMutableAttributedString *copyText = [_innerAttributeText mutableCopy];
-        if (VPFloatIsEqual(_lineHeight, 0)) {
+        if (YGFloatIsEqual(_lineHeight, 0)) {
             _lineHeight = self.font.lineHeight;
         }
         
-        CTLineBreakMode lineBreakMode = (CTLineBreakMode)_lineBreakMode;
-        CTTextAlignment alignment = (CTTextAlignment)_textAlignment;
-        CTParagraphStyleSetting settings[] =
-        {
-            {kCTParagraphStyleSpecifierAlignment,sizeof(alignment),&(alignment)},
-            {kCTParagraphStyleSpecifierLineBreakMode,sizeof(lineBreakMode),&lineBreakMode},
-            {kCTParagraphStyleSpecifierMinimumLineHeight, sizeof(_lineHeight), &_lineHeight},
-            {kCTParagraphStyleSpecifierMaximumLineHeight, sizeof(_lineHeight), &_lineHeight}
-        };
-        CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings,sizeof(settings) / sizeof(settings[0]));
-        [copyText addAttribute:(id)kCTParagraphStyleAttributeName
-                         value:(__bridge id)paragraphStyle
-                         range:NSMakeRange(0, [copyText length])];
-        CFRelease(paragraphStyle);
+        NSMutableParagraphStyle *style = [NSParagraphStyle defaultParagraphStyle].mutableCopy;
+        style.lineBreakMode = _lineBreakMode;
+        style.alignment = _textAlignment;
+        style.minimumLineHeight = _lineHeight;
+        style.maximumLineHeight = _lineHeight;
+        [copyText addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [copyText length])];
         return [copyText copy];
     } else {
         return nil;
@@ -587,7 +576,6 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
         CGContextSetTextPosition(context, lineOrigins[0].x, lineOrigins[0].y);
         CTLineRef line = CFArrayGetValueAtIndex(lines, 0);
         [self _drawLastLine:line context:context attributeText:attributeText size:size lastLineY:lineOrigins[0].y];
-       
     } else {
         
         CFArrayRef lines = CTFrameGetLines(textFrame);
@@ -742,6 +730,8 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
         // 如果有 endToekLabel 在 Label 的最后面显示
         
         // endToekLabel 的 size
+        self.endToken.lineHeight = self.lineHeight;
+        self.endToken.font = self.font;
         CGSize endTokenSize = [self.endToken sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
         
         if (self.endTokenAlwaysShow) {
@@ -802,7 +792,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
                                 needToTruncatedCount++;
                                 remainWidth -= glyphRect.size.width;
                             } else {
-                                if (!VPFloatIsEqual(glyphRect.size.width, 0)) {
+                                if (!YGFloatIsEqual(glyphRect.size.width, 0)) {
                                     needToTruncatedCount++;
                                     break;
                                 } else {
@@ -886,7 +876,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
                                 needToTruncatedCount++;
                                 remainWidth -= glyphRect.size.width;
                             } else {
-                                if (!VPFloatIsEqual(glyphRect.size.width, 0)) {
+                                if (!YGFloatIsEqual(glyphRect.size.width, 0)) {
                                     needToTruncatedCount++;
                                     break;
                                 } else {
@@ -981,12 +971,11 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
                                                                       effectiveRange:NULL];
                     NSAttributedString *tokenString = [[NSAttributedString alloc] initWithString:EllipsesCharacter
                                                                                       attributes:tokenAttributes];
-                    CTLineRef truncationToken = CTLineCreateWithAttributedString((CFAttributedStringRef)tokenString);
                     NSMutableAttributedString *truncationString = [[attributeText attributedSubstringFromRange:NSMakeRange(runRange.location, runRange.length)] mutableCopy];
                     
                     NSInteger needToTruncatedCount = 1;
                     
-                    if (VPFloatIsEqual(glyphRects[glyphCount - 1].size.width, 0) && !isAttachment) {
+                    if (YGFloatIsEqual(glyphRects[glyphCount - 1].size.width, 0) && !isAttachment) {
                         needToTruncatedCount++;
                     }
                     
@@ -999,7 +988,6 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
                     //重新获得一个截断的line
                     CTLineRef truncatedLine = [self _getTruncatedLineFor:truncationString width:size.width tokenAttribute:tokenAttributes];
                     
-                    CFRelease(truncationToken);
                     CGContextSaveGState(context);
                     CGFloat startPoint = CTRunGetImageBounds(run, context, CFRangeMake(0, 1)).origin.x;
                     CGContextTranslateCTM(context, startPoint, 0);
@@ -1015,6 +1003,33 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     }
 }
 
+#pragma mark - caculate size
+
+- (CGSize)sizeThatFits:(CGSize)size {
+    return [YGLabel caculateSizeWithAttributeText:[self _getAttributeTextForDraw] size:size numbersOfLines:self.numberOfLines];
+}
+
+- (CGSize)intrinsicContentSize {
+    return [self sizeThatFits:[super intrinsicContentSize]];
+}
+
+- (void)sizeToFit {
+    [self sizeToFitWithFixedWidth];
+}
+
+- (void)sizeToFitWithFixedWidth {
+    CGSize size = [self sizeThatFits:CGSizeMake(self.bounds.size.width, YGFLOAT_MAX)];
+    CGFloat x = self.frame.origin.x;
+    CGFloat y = self.frame.origin.y;
+    self.frame = CGRectMake(x, y, size.width, size.height);
+}
+
+- (void)sizeToFitWithFixedHeight {
+    CGSize size = [self sizeThatFits:CGSizeMake(YGFLOAT_MAX, self.bounds.size.height)];
+    CGFloat x = self.frame.origin.x;
+    CGFloat y = self.frame.origin.y;
+    self.frame = CGRectMake(x, y, size.width, size.height);
+}
 
 #pragma mark - YGLabelGestureRecognizerDelegate
 - (void)touchesBegan:(NSSet<UITouch *> *)touches gesture:(UIGestureRecognizer *)gesture {
@@ -1038,6 +1053,15 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     _touchedInfo = nil;
 }
 
+#pragma mark -
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint point = [gestureRecognizer locationInView:self];
+    if (self.endToken && CGRectContainsPoint(self.endToken.frame, point)) {
+        NSLog(@"");
+    }
+    return true;
+}
+
 #pragma mark - font
 
 #pragma mark - longpress
@@ -1053,8 +1077,8 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
             _longBlock();
         }
     }
+    
     if (self.longPressColor) {
-//        [self setNeedsDisplay];
         [self _drawText];
     }
 }

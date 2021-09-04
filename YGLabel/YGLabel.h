@@ -67,6 +67,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)longPressWithBlock:(void(^)(void))block;
 - (void)cancelLongPress;
 
+// size to fit
+- (void)sizeToFitWithFixedWidth;
+- (void)sizeToFitWithFixedHeight;
+
 @end
 
 NS_ASSUME_NONNULL_END
