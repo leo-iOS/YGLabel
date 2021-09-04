@@ -94,7 +94,7 @@ CGFloat attachmentWidthCallback(void *ref);
     callbacks.getDescent = attachmentDescentCallback;
     callbacks.getWidth = attachmentWidthCallback;
     
-    CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (void *)self);
+    CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge_retained void *)self);
     return delegate;
 }
 
@@ -112,7 +112,7 @@ CGFloat attachmentWidthCallback(void *ref);
 CGFloat attachemntAscentCallback(void *ref) {
     CGFloat ascent = 20;
     
-    YGTextAttachment *attachment = (__bridge YGTextAttachment *)ref;
+    YGTextAttachment *attachment = (__bridge  YGTextAttachment *)ref;
     CGFloat height = [attachment boxSize].height;
     switch (attachment.alignment) {
         case YGTextAttachmentAlignmentTop: {

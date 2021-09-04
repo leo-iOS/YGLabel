@@ -44,14 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 长按label，文字绘制区域的背景色，默认 nil
 @property (nonatomic, strong, nullable) UIColor *longPressColor;
 
-//@property (nonatomic, assign) BOOL autoDetectLinks;
-//
-//@property (nonatomic, strong) NSSet *allowLinkSchemes;
-
-// insert methods
-- (void)setText:(NSString * _Nullable)text;
-- (void)setAttributedText:(NSAttributedString * _Nullable)attributedText;
-
+//// insert methods
 - (void)insertAtFirstWithText:(NSString *)text;
 - (void)insertAtFirstWithAttributeText:(NSAttributedString *)attributeText;
 - (void)insertAtFirstWithAttachment:(YGTextAttachment *)attachment;

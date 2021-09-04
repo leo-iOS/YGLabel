@@ -9,9 +9,7 @@
 @interface _YGSentinel : NSObject {
     atomic_uint _value;
 }
-
 @end
-
 
 @implementation _YGSentinel
 
@@ -26,9 +24,9 @@
 
 @end
 
-
 @implementation YGLabelLayer {
     _YGSentinel *_sentinel;
+    CTFrameRef _textFrame;
 }
 
 - (instancetype)init
@@ -54,6 +52,10 @@
 - (void)_displayAsync:(BOOL)async {
     if (!self.displaying) {
         if (self.willDisplay) self.willDisplay(self);
+        if (_textFrame != nil) {
+            CFRelease(_textFrame);
+            _textFrame = nil;
+        }
         self.contents = nil;
         if (self.didDisplay) self.didDisplay(self, NO);
         return;
@@ -61,11 +63,14 @@
     
     CGSize size = self.bounds.size;
     BOOL opaque = self.opaque;
-//    CGFloat scale = self.contentsScale;
     
     if (async) {
         if (!self.willDisplay) return;;
         CTFrameRef textFrame = self.willDisplay(self);
+        if (_textFrame != nil) {
+            CFRelease(_textFrame);
+        }
+        _textFrame = CFRetain(textFrame);
         // 小于一个像素的不绘制
         if (size.width < 1 || size.height < 1) {
             CGImageRef image = (__bridge_retained CGImageRef)self.contents;
@@ -75,9 +80,9 @@
                     CGImageRelease(image);
                 });
             }
-//            if (self.didDisplay) {
-//                self.didDisplay(self, YES);
-//            }
+            if (self.didDisplay) {
+                self.didDisplay(self, YES);
+            }
         }
         
         _YGSentinel *sentinel = _sentinel;
@@ -141,7 +146,10 @@
         }
         
         CTFrameRef textFrame = self.willDisplay(self);
-        
+        if (_textFrame != nil) {
+            CFRelease(_textFrame);
+        }
+        _textFrame = CFRetain(textFrame);
         UIGraphicsBeginImageContextWithOptions(size, opaque, [UIScreen mainScreen].scale);
         CGContextRef context = UIGraphicsGetCurrentContext();
         
@@ -178,6 +186,10 @@
         } CGContextRestoreGState(context);
     }
     
+}
+
+- (CTFrameRef)getCurrentTextFrame {
+    return _textFrame;
 }
 
 @end

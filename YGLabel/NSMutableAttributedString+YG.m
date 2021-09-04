@@ -51,7 +51,6 @@
     [self addAttribute:(NSString *)kCTUnderlineStyleAttributeName
                  value:[NSNumber numberWithInt:(style|modifier)]
                  range:range];
-    
 }
 
 #pragma mark - to do

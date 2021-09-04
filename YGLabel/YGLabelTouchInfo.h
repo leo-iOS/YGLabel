@@ -14,22 +14,22 @@
 
 @property (nonatomic, assign) NSRange range;
 
-@property (nonatomic, strong) UIColor *color;
+//@property (nonatomic, strong) UIColor *color;
+//
+//@property (nonatomic, strong) UIColor *highlightColor;
 
-@property (nonatomic, strong) UIColor *highlightColor;
-
-@property (nonatomic, assign) BOOL showUnderline;
+//@property (nonatomic, assign) BOOL showUnderline;
 
 + (YGLabelTouchInfo *)touchInfo:(id)content
                           range:(NSRange)range;
 
-+ (YGLabelTouchInfo *)touchInfo:(id)content
-                          range:(NSRange)range
-                          color:(UIColor *)color;
-
-+ (YGLabelTouchInfo *)touchInfo:(id)content
-                          range:(NSRange)range
-                          color:(UIColor *)color
-                 highlightColor:(UIColor *)highlightColor;
+//+ (YGLabelTouchInfo *)touchInfo:(id)content
+//                          range:(NSRange)range
+//                          color:(UIColor *)color;
+//
+//+ (YGLabelTouchInfo *)touchInfo:(id)content
+//                          range:(NSRange)range
+//                          color:(UIColor *)color
+//                 highlightColor:(UIColor *)highlightColor;
 
 @end

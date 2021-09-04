@@ -191,6 +191,14 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     return  _innerAttributeText.length;
 }
 
+- (NSString *)text {
+    return _innerAttributeText.string;
+}
+
+- (NSAttributedString *)attributedText {
+    return _innerAttributeText.copy;
+}
+
 #pragma mark - setter methods
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
@@ -282,7 +290,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 
 #pragma mark - add methods
 - (void)addTouchInfo:(YGLabelTouchInfo *)touchInfo {
-    
+
     for (YGLabelTouchInfo *info in _touchInfos) {
         NSRange intersection = NSIntersectionRange(touchInfo.range, info.range);
         if (intersection.length != 0) {
@@ -345,8 +353,6 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     layer.didDisplay = ^(CALayer * _Nonnull layer, BOOL finished) {
         if (!finished) {
             // display finished
-//            __strong typeof(weakSelf) strongSelf = weakSelf;
-//            CFRelease(strongSelf->_textFrame);
             YGLog(@"layer didDisplay");
         }
     };
@@ -392,49 +398,57 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     _lineBreakMode = NSLineBreakByWordWrapping;
 }
 
-//- (YGLabelTouchInfo *)_checkTouchInfoForPoint:(CGPoint)point {
-//    static const CGFloat margin = 5;
-//    CGRect newRect = CGRectInset(self.bounds, 0, -margin);
-//    if (!CGRectContainsPoint(newRect, point)) {
-//        return nil;
-//    }
-//    CTFrameRef textFrame = CFRetain(_textFrame);
-//    CFArrayRef lines = CTFrameGetLines(textFrame);
-//    if (!lines) return nil;
-//    CFIndex count = CFArrayGetCount(lines);
-//
-//    CGPoint origins[count];
-//    CTFrameGetLineOrigins(textFrame, CFRangeMake(0,0), origins);
-//    CGFloat verticalOffset = 0;
-//
-//    CGAffineTransform transform = [self transformForCoreText];
-//    for (int i = 0; i < count; i++)
-//    {
-//        CGPoint linePoint = origins[i];
-//
-//        CTLineRef line = CFArrayGetValueAtIndex(lines, i);
-//        CGRect flippedRect = [self _getLineBounds:line point:linePoint];
-//        CGRect rect = CGRectApplyAffineTransform(flippedRect, transform);
-//
-//        rect = CGRectInset(rect, 0, -margin);
-//        rect = CGRectOffset(rect, 0, verticalOffset);
-//
-//        if (CGRectContainsPoint(rect, point))
-//        {
-//            CGPoint relativePoint = CGPointMake(point.x-CGRectGetMinX(rect),
-//                                                point.y-CGRectGetMinY(rect));
-//            CFIndex idx = CTLineGetStringIndexForPosition(line, relativePoint);
-//            YGLabelTouchInfo *info = [self _searchTouchInfoAtIndex:idx];
-//            if (info)
-//            {
-//                CFRelease(textFrame);
-//                return info;
-//            }
-//        }
-//    }
-//    CFRelease(textFrame);
-//    return nil;
-//}
+- (YGLabelTouchInfo *)_checkTouchInfoForPoint:(CGPoint)point {
+    CTFrameRef _textFrame = [(YGLabelLayer *)self.layer getCurrentTextFrame];
+    if (!_textFrame) {
+        return nil;
+    }
+    static const CGFloat margin = 0;
+    CGRect newRect = CGRectInset(self.bounds, 0, -margin);
+    if (self.numberOfLines != 0) {
+        newRect.size.height = self.numberOfLines * self.lineHeight;
+    }
+    
+    if (!CGRectContainsPoint(newRect, point)) {
+        return nil;
+    }
+    
+    CTFrameRef textFrame = CFRetain(_textFrame);
+    CFArrayRef lines = CTFrameGetLines(textFrame);
+    if (!lines) return nil;
+    CFIndex count = CFArrayGetCount(lines);
+
+    CGPoint origins[count];
+    CTFrameGetLineOrigins(textFrame, CFRangeMake(0,0), origins);
+
+    CGAffineTransform transform = [self transformForCoreText];
+    for (int i = 0; i < count; i++)
+    {
+        CGPoint linePoint = origins[i];
+
+        CTLineRef line = CFArrayGetValueAtIndex(lines, i);
+        CGRect flippedRect = [self _getLineBounds:line point:linePoint];
+        CGRect rect = CGRectApplyAffineTransform(flippedRect, transform);
+        
+        rect = CGRectInset(rect, 0, -margin);
+
+        if (CGRectContainsPoint(rect, point))
+        {
+            CGPoint relativePoint = CGPointMake(point.x-CGRectGetMinX(rect),
+                                                point.y-CGRectGetMinY(rect));
+            CFIndex idx = CTLineGetStringIndexForPosition(line, relativePoint);
+            YGLog(@"idx %d", idx);
+            YGLabelTouchInfo *info = [self _searchTouchInfoAtIndex:idx-1];
+            if (info)
+            {
+                CFRelease(textFrame);
+                return info;
+            }
+        }
+    }
+    CFRelease(textFrame);
+    return nil;
+}
 
 - (YGLabelTouchInfo *)_searchTouchInfoAtIndex:(CFIndex)index
 {
@@ -512,11 +526,13 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 //        return 0;
 //    }
 //    CTFrameRef textFrame = CFRetain(_textFrame);
-    CFArrayRef lines = CTFrameGetLines(textFrame);
-//    CFRelease(textFrame);
+    CFArrayRef lines = CFRetain(CTFrameGetLines(textFrame));
     if (lines) {
-        return _numberOfLines > 0 ? MIN(CFArrayGetCount(lines), _numberOfLines) : CFArrayGetCount(lines);
+        NSInteger count =  CFArrayGetCount(lines);
+        CFRelease(lines);
+        return _numberOfLines > 0 ? MIN(count, _numberOfLines) : count;
     }
+    
     return 0;
 }
 
@@ -528,20 +544,10 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 
 #pragma mark - draw methods
 - (void)_drawText {
-//    if (_textFrame) {
-//        CFRelease(_textFrame);
-//        _textFrame = nil;
-//    }
-    if (_innerAttributeText.length == 0) {
-        return;
-    }
     [self.layer setNeedsDisplay];
 }
 
 - (void)_drawLongPressBackgroundColorIfNeeded:(CGContextRef)context size:(CGSize)size{
-//    if (!_textFrame) {
-//        return;
-//    }
     if (!_longPressColor) {
         return;
     }
@@ -562,11 +568,10 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 }
 
 - (void)_drawAttributeString:(CGContextRef)context size:(CGSize)size attributeText:(NSAttributedString *)attributeText textFrame:(CTFrameRef)textFrame {
-//    if (!_textFrame) {
-//        return;
-//    }
-//    int count = CFGetRetainCount(_textFrame);
-//    CTFrameRef textFrame = CFRetain(_textFrame);
+    if (!textFrame) {
+        return;
+    }
+
     [_attachmentDoNotDraw removeAllObjects];
 
     NSInteger numberOfLines = [self _numberOfLinesForDisplay:textFrame];
@@ -574,7 +579,6 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
     if (numberOfLines == 1) {
         CFArrayRef lines = CTFrameGetLines(textFrame);
         if (!lines) {
-//            CFRelease(textFrame);
             return;
         }
         CFIndex lineCount = CFArrayGetCount(lines);
@@ -588,7 +592,6 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
         
         CFArrayRef lines = CTFrameGetLines(textFrame);
         if (!lines) {
-//            CFRelease(textFrame);
             return;
         }
         CFIndex lineCount = CFArrayGetCount(lines);
@@ -608,7 +611,6 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
             }
         }
     }
-//    CFRelease(textFrame);
 }
 
 - (void)_drawAttachments:(CGContextRef)context textFrame:(CTFrameRef)textFrame{
@@ -616,7 +618,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
         return;
     }
     
-//    CTFrameRef textFrame = CFRetain(_textFrame);
+    CTFrameRef _textFrame = CFRetain(textFrame);
     
     for (YGTextAttachment *attachment in _attachments) {
         if ([attachment.content isKindOfClass:[UIView class]]) {
@@ -626,12 +628,12 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
         }
     }
     
-    CFArrayRef lines = CTFrameGetLines(textFrame);
+    CFArrayRef lines = CTFrameGetLines(_textFrame);
     CFIndex lineCount = CFArrayGetCount(lines);
     CGPoint lineOrigins[lineCount];
     // 获取每一个line的位于baseline开始的点
-    CTFrameGetLineOrigins(textFrame, CFRangeMake(0, 0), lineOrigins);
-    NSInteger numberOfLines = [self _numberOfLinesForDisplay:textFrame];
+    CTFrameGetLineOrigins(_textFrame, CFRangeMake(0, 0), lineOrigins);
+    NSInteger numberOfLines = [self _numberOfLinesForDisplay:_textFrame];
     
     for (CFIndex i = 0; i < numberOfLines; i++)
     {
@@ -651,12 +653,11 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
             CTRunRef run = CFArrayGetValueAtIndex(runs, k);
             NSDictionary *runAttributes = (NSDictionary *)CTRunGetAttributes(run);
             CTRunDelegateRef delegate = (__bridge CTRunDelegateRef)[runAttributes valueForKey:(id)kCTRunDelegateAttributeName];
-            CFRelease(run);
             if (nil == delegate)
             {
                 continue;
             }
-            YGTextAttachment* attachment = (YGTextAttachment *)CTRunDelegateGetRefCon(delegate);
+            YGTextAttachment* attachment = (__bridge YGTextAttachment *)CTRunDelegateGetRefCon(delegate);
             if ([_attachmentDoNotDraw containsObject:attachment]) {
                 continue;
             }
@@ -722,7 +723,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
             }
         }
     }
-//    CFRelease(textFrame);
+    CFRelease(_textFrame);
 }
 
 - (void)_drawLastLine:(CTLineRef)line
@@ -972,7 +973,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
                     // 需要截断
                     // 如果是Attachment，则不绘制
                     if (isAttachment) {
-                        YGTextAttachment* attachment = (YGTextAttachment *)CTRunDelegateGetRefCon(delegate);
+                        YGTextAttachment* attachment = (__bridge YGTextAttachment *)CTRunDelegateGetRefCon(delegate);
                         [_attachmentDoNotDraw addObject:attachment];
                     }
                     NSUInteger truncationAttributePosition = runRange.location + runRange.length - 1;
@@ -1019,7 +1020,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 - (void)touchesBegan:(NSSet<UITouch *> *)touches gesture:(UIGestureRecognizer *)gesture {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
-//    _touchedInfo = [self _checkTouchInfoForPoint:point];
+    _touchedInfo = [self _checkTouchInfoForPoint:point];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches gesture:(UIGestureRecognizer *)gesture {
@@ -1027,7 +1028,7 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches gesture:(UIGestureRecognizer *)gesture {
-    if (_touchedBlock) {
+    if (_touchedInfo && _touchedBlock) {
         _touchedBlock(_touchedInfo.content, _touchedInfo.range);
     }
     _touchedInfo = nil;

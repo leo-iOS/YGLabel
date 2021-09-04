@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, copy) void (^didDisplay)(CALayer *layer, BOOL finished);
 
+- (CTFrameRef)getCurrentTextFrame;
+
 @end
 
 NS_ASSUME_NONNULL_END
