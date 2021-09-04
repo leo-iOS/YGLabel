@@ -27,6 +27,7 @@
     self.label.layer.borderColor = UIColor.grayColor.CGColor;
     self.label.layer.borderWidth = 1.0;
     self.label.lineHeight = 35;
+    self.label.displayAsync = YES;
     
     
     

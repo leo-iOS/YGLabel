@@ -123,7 +123,11 @@
     [self.label appendAttachment:imageAttachment4];
     [self.label appendWithText:@"这是第九段段用于测试的很长长长长长长长长长长长长长长长长长长长长长长长长文字"];
     [self.label appendAttributeText:attribute2];
-    
+   
+    NSLog(@"%@", self.label.text);
+    NSLog(@"%d", self.label.text.length);
+    NSLog(@"%@", self.label.attributedText);
+    NSLog(@"%d", self.label.attributedText.length);
 }
 
 

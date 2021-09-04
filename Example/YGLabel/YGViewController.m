@@ -12,6 +12,10 @@
 #import "Demo4ViewController.h"
 #import "Demo5ViewController.h"
 #import "Demo6ViewController.h"
+#import "Demo7ViewController.h"
+#import "Demo8ViewController.h"
+
+
 
 @interface YGViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -102,8 +106,13 @@
         }
             break;
         case 6: {
-//            Demo7ViewController *vc = [[Demo7ViewController alloc] init];
-//            [self.navigationController pushViewController:vc animated:YES];
+            Demo7ViewController *vc = [[Demo7ViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 7: {
+            Demo8ViewController *vc = [[Demo8ViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             

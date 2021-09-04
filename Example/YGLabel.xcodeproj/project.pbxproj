@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D024B9726E3426100512DFA /* KMCGeigerCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D024B9526E3426100512DFA /* KMCGeigerCounter.m */; };
 		0D3270BA26E2427000A0A6A9 /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270B826E2427000A0A6A9 /* Demo2ViewController.m */; };
 		0D3270BB26E2427000A0A6A9 /* Demo2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D3270B926E2427000A0A6A9 /* Demo2ViewController.xib */; };
 		0D3270C726E242A000A0A6A9 /* Demo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3270C526E242A000A0A6A9 /* Demo3ViewController.m */; };
@@ -55,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		035346C26C7BD4BBB65A28F9 /* Pods_YGLabel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YGLabel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D024B9526E3426100512DFA /* KMCGeigerCounter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMCGeigerCounter.m; sourceTree = "<group>"; };
+		0D024B9626E3426100512DFA /* KMCGeigerCounter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMCGeigerCounter.h; sourceTree = "<group>"; };
 		0D3270B726E2427000A0A6A9 /* Demo2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo2ViewController.h; sourceTree = "<group>"; };
 		0D3270B826E2427000A0A6A9 /* Demo2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo2ViewController.m; sourceTree = "<group>"; };
 		0D3270B926E2427000A0A6A9 /* Demo2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Demo2ViewController.xib; sourceTree = "<group>"; };
@@ -138,54 +141,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D3270B026E2423600A0A6A9 /* Demo2 */ = {
+		0D3270B026E2423600A0A6A9 /* Demo2 (测试append, insert attribuString、Attachment) */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270B726E2427000A0A6A9 /* Demo2ViewController.h */,
 				0D3270B826E2427000A0A6A9 /* Demo2ViewController.m */,
 				0D3270B926E2427000A0A6A9 /* Demo2ViewController.xib */,
 			);
-			path = Demo2;
+			path = "Demo2 (测试append, insert attribuString、Attachment)";
 			sourceTree = "<group>";
 		};
-		0D3270B126E2423C00A0A6A9 /* Demo3 */ = {
+		0D3270B126E2423C00A0A6A9 /* Demo3（测试同步、异步绘制1） */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270C426E242A000A0A6A9 /* Demo3ViewController.h */,
 				0D3270C526E242A000A0A6A9 /* Demo3ViewController.m */,
 				0D3270C626E242A000A0A6A9 /* Demo3ViewController.xib */,
 			);
-			path = Demo3;
+			path = "Demo3（测试同步、异步绘制1）";
 			sourceTree = "<group>";
 		};
-		0D3270B226E2424000A0A6A9 /* Demo4 */ = {
+		0D3270B226E2424000A0A6A9 /* Demo4（测试同步、异步绘制2） */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270D226E2436A00A0A6A9 /* Demo4ViewController.h */,
 				0D3270D326E2436A00A0A6A9 /* Demo4ViewController.m */,
 				0D3270D426E2436A00A0A6A9 /* Demo4ViewController.xib */,
 			);
-			path = Demo4;
+			path = "Demo4（测试同步、异步绘制2）";
 			sourceTree = "<group>";
 		};
-		0D3270B326E2424400A0A6A9 /* Demo5 */ = {
+		0D3270B326E2424400A0A6A9 /* Demo5（测试endtoken总是存在） */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270D926E243C400A0A6A9 /* Demo5ViewController.h */,
 				0D3270DA26E243C400A0A6A9 /* Demo5ViewController.m */,
 				0D3270DB26E243C400A0A6A9 /* Demo5ViewController.xib */,
 			);
-			path = Demo5;
+			path = "Demo5（测试endtoken总是存在）";
 			sourceTree = "<group>";
 		};
-		0D3270B426E2424900A0A6A9 /* Demo6 */ = {
+		0D3270B426E2424900A0A6A9 /* Demo6（测试endtoken隐藏) */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270E026E243D000A0A6A9 /* Demo6ViewController.h */,
 				0D3270E126E243D000A0A6A9 /* Demo6ViewController.m */,
 				0D3270E226E243D000A0A6A9 /* Demo6ViewController.xib */,
 			);
-			path = Demo6;
+			path = "Demo6（测试endtoken隐藏)";
 			sourceTree = "<group>";
 		};
 		0D3270E726E2468100A0A6A9 /* Demo1(字体、颜色、行高、行数、Attachment测试) */ = {
@@ -198,24 +201,24 @@
 			path = "Demo1(字体、颜色、行高、行数、Attachment测试)";
 			sourceTree = "<group>";
 		};
-		0D3270EF26E24A3900A0A6A9 /* Demo7 */ = {
+		0D3270EF26E24A3900A0A6A9 /* Demo7（tap测试) */ = {
 			isa = PBXGroup;
 			children = (
 				0D3270F126E24A7B00A0A6A9 /* Demo7ViewController.h */,
 				0D3270F226E24A7B00A0A6A9 /* Demo7ViewController.m */,
 				0D3270F326E24A7B00A0A6A9 /* Demo7ViewController.xib */,
 			);
-			path = Demo7;
+			path = "Demo7（tap测试)";
 			sourceTree = "<group>";
 		};
-		0D3270F026E24A3E00A0A6A9 /* Demo8 */ = {
+		0D3270F026E24A3E00A0A6A9 /* Demo8（长按背景色显示) */ = {
 			isa = PBXGroup;
 			children = (
 				0D32710126E24A9000A0A6A9 /* Demo8ViewController.h */,
 				0D32710226E24A9000A0A6A9 /* Demo8ViewController.m */,
 				0D32710326E24A9000A0A6A9 /* Demo8ViewController.xib */,
 			);
-			path = Demo8;
+			path = "Demo8（长按背景色显示)";
 			sourceTree = "<group>";
 		};
 		0D32710A26E24C2A00A0A6A9 /* ControlView */ = {
@@ -266,13 +269,13 @@
 			children = (
 				0D32710A26E24C2A00A0A6A9 /* ControlView */,
 				0D3270E726E2468100A0A6A9 /* Demo1(字体、颜色、行高、行数、Attachment测试) */,
-				0D3270B026E2423600A0A6A9 /* Demo2 */,
-				0D3270B126E2423C00A0A6A9 /* Demo3 */,
-				0D3270B226E2424000A0A6A9 /* Demo4 */,
-				0D3270B326E2424400A0A6A9 /* Demo5 */,
-				0D3270B426E2424900A0A6A9 /* Demo6 */,
-				0D3270EF26E24A3900A0A6A9 /* Demo7 */,
-				0D3270F026E24A3E00A0A6A9 /* Demo8 */,
+				0D3270B026E2423600A0A6A9 /* Demo2 (测试append, insert attribuString、Attachment) */,
+				0D3270B126E2423C00A0A6A9 /* Demo3（测试同步、异步绘制1） */,
+				0D3270B226E2424000A0A6A9 /* Demo4（测试同步、异步绘制2） */,
+				0D3270B326E2424400A0A6A9 /* Demo5（测试endtoken总是存在） */,
+				0D3270B426E2424900A0A6A9 /* Demo6（测试endtoken隐藏) */,
+				0D3270EF26E24A3900A0A6A9 /* Demo7（tap测试) */,
+				0D3270F026E24A3E00A0A6A9 /* Demo8（长按背景色显示) */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -281,6 +284,8 @@
 				6003F59D195388D20070C39A /* YGAppDelegate.m */,
 				6003F5A5195388D20070C39A /* YGViewController.h */,
 				6003F5A6195388D20070C39A /* YGViewController.m */,
+				0D024B9626E3426100512DFA /* KMCGeigerCounter.h */,
+				0D024B9526E3426100512DFA /* KMCGeigerCounter.m */,
 			);
 			name = "Example for YGLabel";
 			path = YGLabel;
@@ -521,6 +526,7 @@
 				6003F5A7195388D20070C39A /* YGViewController.m in Sources */,
 				0D3270D526E2436A00A0A6A9 /* Demo4ViewController.m in Sources */,
 				0D3270C726E242A000A0A6A9 /* Demo3ViewController.m in Sources */,
+				0D024B9726E3426100512DFA /* KMCGeigerCounter.m in Sources */,
 				0D3270BA26E2427000A0A6A9 /* Demo2ViewController.m in Sources */,
 				0D3270E326E243D000A0A6A9 /* Demo6ViewController.m in Sources */,
 				0D3270F426E24A7B00A0A6A9 /* Demo7ViewController.m in Sources */,
