@@ -49,16 +49,16 @@ numbersOfLines:(NSInteger)numberOfLines {
     
     return [self caculateSizeWithAttributeText:attributeText size:size numbersOfLines:numberOfLines];
 }
+//
+//+ (CGSize)caculateSizeWithAttributeText:(NSAttributedString *)attributeText
+//                                   size:(CGSize)size
+//                         numbersOfLines:(NSInteger)numberOfLines {
+//    return [self caculateSIzeWithAttributeText:attributeText size:size numbersOfLines:numberOfLines];
+//}
 
 + (CGSize)caculateSizeWithAttributeText:(NSAttributedString *)attributeText
                                    size:(CGSize)size
                          numbersOfLines:(NSInteger)numberOfLines {
-    return [self caculateSizeWithAttributeText:attributeText size:size numbersOfLines:numberOfLines];
-}
-
-+ (CGSize)caculateSIzeWithAttributeText:(NSAttributedString *)attributeText
-                                   size:(CGSize)size
-                         numbersOfLines:(NSInteger)numberOfLines; {
     
     NSAttributedString *attributeString = [attributeText copy];
     if (!attributeString) {

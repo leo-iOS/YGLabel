@@ -24,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CGSize)caculateSizeWithAttributeText:(NSAttributedString *)attributeText
                                    size:(CGSize)size
-                         numbersOfLines:(NSInteger)lines;
+                         numbersOfLines:(NSInteger)numberOfLines;
+
 
 @end
 

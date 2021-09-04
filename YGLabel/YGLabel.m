@@ -1054,14 +1054,15 @@ typedef NS_ENUM(NSUInteger, LongPressBgState) {
         }
     }
     if (self.longPressColor) {
-        [self setNeedsDisplay];
+//        [self setNeedsDisplay];
+        [self _drawText];
     }
 }
 
 - (void)cancelLongPress {
-    _bgState = LongPressBgStateToDraw;
+    _bgState = LongPressBgStateCancelDraw;
     if (self.longPressColor) {
-        [self setNeedsDisplay];
+        [self _drawText];
     }
 }
 
